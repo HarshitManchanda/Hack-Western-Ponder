@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View, Alert, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Alert, TouchableHighlight, ImageBackground } from 'react-native';
 
 export default function Goals({ navigation }) {
   return (
@@ -12,7 +12,7 @@ export default function Goals({ navigation }) {
               <Text style={{fontSize: 22}}>Weekly</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight underlayColor="#E1E1E1" onPress={() => Alert.alert('Button Pressed')} style={[styles.goal_section, styles.goal_right]}>
+          <TouchableHighlight underlayColor="#4945F4" onPress={() => Alert.alert('Button Pressed')} style={[styles.goal_section, styles.goal_right]}>
             <View>
               <Text style={{fontSize: 22}}>Monthly</Text>
             </View>
@@ -20,52 +20,66 @@ export default function Goals({ navigation }) {
         </View>
         <View style={{flex: 2, flexDirection: 'row'}}>
           <View style={[styles.number_section, styles.number_left]}>
-            <Text style={{fontSize: 44}}>4</Text>
+            <Text style={{fontSize: 44}}>3</Text>
             <Text style={{fontSize: 22, marginTop: 10}}>Achieved</Text>
           </View>
           <View style={[styles.number_section, styles.number_right]}>
-            <Text style={{fontSize: 44}}>5</Text>
+            <Text style={{fontSize: 44}}>1</Text>
             <Text style={{fontSize: 22, marginTop: 10}}>Pending</Text>
           </View>
         </View>
       </View>
       <View style={styles.bottom_section}>
-        <Text style={{fontSize: 32, marginTop: 20, marginBottom: 20}}>Goals for the week</Text>
+        <Text style={{fontSize: 32, marginTop: 20, marginBottom: 10}}>Goals for the week</Text>
         <View style={styles.task_bar}>
-          <View style={styles.circle_button}>
-          </View>
+            <View style={styles.circle_button}>
+              <ImageBackground source={require('../assets/circle-cropped.png')} style={styles.image}>
+              </ImageBackground>
+            </View>
           <View>
             <Text style={{fontSize: 18}}>Finish the Ponder App</Text>
           </View>
         </View>
         <View style={styles.task_bar}>
           <View style={styles.circle_button}>
+            <ImageBackground source={require('../assets/circle-cropped.png')} style={styles.image}>
+            </ImageBackground>
           </View>
           <View>
-            <Text style={{fontSize: 18}}>Finish the Ponder App</Text>
+            <Text style={{fontSize: 18}}>Make and edit the video</Text>
           </View>
         </View>
         <View style={styles.task_bar}>
           <View style={styles.circle_button}>
           </View>
           <View>
-            <Text style={{fontSize: 18}}>Finish the Ponder App</Text>
+            <Text style={{fontSize: 18}}>Collect all badges</Text>
           </View>
         </View>
         <View style={styles.task_bar}>
           <View style={styles.circle_button}>
+            <ImageBackground source={require('../assets/circle-cropped.png')} style={styles.image}>
+            </ImageBackground>
           </View>
           <View>
-            <Text style={{fontSize: 18}}>Finish the Ponder App</Text>
+            <Text style={{fontSize: 18}}>Sleep for some time</Text>
           </View>
         </View>
       </View>
-      <TouchableHighlight
-        style={styles.button}
-        onPress={() => navigation.navigate('Home', {})}
-        underlayColor='#000000'>
-        <Text style={styles.buttonText}>Back</Text>
-      </TouchableHighlight>
+      <View style={{flexDirection: 'row', justifyContent: "center"}}>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => Alert.alert('Button Pressed')}
+          underlayColor='#ff7a83'>
+          <Text style={styles.buttonText}>Add Goal</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => navigation.navigate('Home', {})}
+          underlayColor='#ff7a83'>
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableHighlight>
+      </View>
     </View>
   );
 }
@@ -96,14 +110,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
-
   },
   goal_left: {
     marginRight: -18
   },
   goal_right: {
     marginLeft: -18,
-    backgroundColor: '#E1E1E1'
+    backgroundColor: '#4945F4'
   },
   number_section: {
     width: 120,
@@ -113,6 +126,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
+
+    elevation: 15,
   },  
   number_left: {
     marginRight: 15,
@@ -129,6 +152,13 @@ const styles = StyleSheet.create({
     marginRight: 40,
     borderWidth: 2,
   },
+  image: {
+    flex: 1,
+    width: 23,
+    height: 23,
+    marginTop: 1.5,
+    marginLeft: 1.5
+  },
   task_bar: {
     flexDirection: 'row', 
     width: 350, 
@@ -141,16 +171,16 @@ const styles = StyleSheet.create({
   },
   button: {
       backgroundColor: '#FC545E',
+      borderColor: 'black',
+      borderWidth: 2,
+      borderRadius: 10,
       marginVertical: 5,
       marginHorizontal: 10,
+      width: 180
   },
   buttonText: {
       paddingVertical: 15,
       color: '#FFFBFB',
-      backgroundColor: '#FC545E',
-      borderColor: 'black',
-      borderWidth: 2,
-      borderRadius: 10,
       textAlign: 'center',
       fontSize: 24,
   }

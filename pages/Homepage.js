@@ -9,13 +9,13 @@ export default function Homepage({ navigation }) {
                 <Image source={require('../assets/logo.png')} style={{ width: 150, height: 70, resizeMode: 'contain' }} />
             </View>
             <Text style={styles.textHeader}>What would you like to do?</Text>
-            <TouchableHighlight style={styles.section1} onPress={() => navigation.navigate('Gratitude', {})}>
+            <TouchableHighlight underlayColor='#ff7a83' style={styles.section1} onPress={() => navigation.navigate('Gratitude', {})}>
                 <Text style={styles.sectionText}>Gratitude Journal</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.section2} onPress={() => navigation.navigate('Goals', {})}>
+            <TouchableHighlight underlayColor='#f7bba1' style={styles.section2} onPress={() => navigation.navigate('Goals', {})}>
                 <Text style={styles.sectionText}>Goals</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.section3} onPress={() => navigation.navigate('Resources', {})}>
+            <TouchableHighlight underlayColor='#fadca5' style={styles.section3} onPress={() => navigation.navigate('Resources', {})}>
                 <Text style={styles.sectionText}>Resources</Text>
             </TouchableHighlight>
             <View>
@@ -33,11 +33,12 @@ export default function Homepage({ navigation }) {
       alignItems: 'center',
       justifyContent: 'flex-start',
       padding: 15,
-      height: 500
+      height: 500,
     },
     logoContainer: {
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 50
     },
     section1: {
         width: 260,
