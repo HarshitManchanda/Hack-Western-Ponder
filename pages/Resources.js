@@ -6,7 +6,7 @@ export default function Resources({ navigation }) {
   return (
     <View style={styles.container}>
         <View style={styles.logoContainer}>
-            <Image source={require('./assets/logo.png')} style={{ width: 150, height: 70, resizeMode: 'contain' }} />
+            <Image source={require('../assets/logo.png')} style={{ width: 150, height: 70, resizeMode: 'contain' }} />
         </View>
         <Text style={styles.textHeader}>Resources</Text>
         <View style={styles.section}>

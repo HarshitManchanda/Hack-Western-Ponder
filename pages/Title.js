@@ -6,14 +6,14 @@ import { StyleSheet, Text, View, Image, TouchableHighlight, ImageBackground} fro
 export default function Title({ navigation }) {
     return (
     <View style={styles.container}>
-        <ImageBackground source={require('./assets/background.png')} style={styles.image}>
+        <ImageBackground source={require('../assets/background.png')} style={styles.image}>
         <View style={styles.top_section}>
         <Text style={{fontSize: 18}}>Hello,</Text>
         <Text style={{fontSize: 18}}>Welcome to Ponder</Text>
         </View>
         <StatusBar style="auto" />
         <View style={styles.middle_section}>
-        <Image source={require('./assets/logo.png')} style={{ width: 250, height: 80, resizeMode: 'contain' }} />
+        <Image source={require('../assets/logo.png')} style={{ width: 250, height: 80, resizeMode: 'contain' }} />
         <Text style={{fontSize: 18}}>Your new personal self-care companion</Text>
         <TouchableHighlight underlayColor="#FFF8F8" onPress={() => navigation.navigate('Quote', {})}>
             <View style={styles.button}>
