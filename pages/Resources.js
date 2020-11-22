@@ -32,7 +32,7 @@ export default function Resources({ navigation }) {
         <TouchableHighlight
             style={styles.button}
             onPress={() => navigation.navigate('Home', {})}
-            underlayColor='#000000'>
+            underlayColor='#ff7a83'>
             <Text style={styles.buttonText}>Back</Text>
         </TouchableHighlight>
     </View>
@@ -88,15 +88,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FC545E',
         marginVertical: 5,
         marginHorizontal: 10,
-        width: '100%'
+        width: '100%',
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: 10,
     },
     buttonText: {
         paddingVertical: 15,
         color: '#FFFBFB',
-        backgroundColor: '#FC545E',
-        borderColor: 'black',
-        borderWidth: 2,
-        borderRadius: 10,
         textAlign: 'center',
         fontSize: 24,
     }

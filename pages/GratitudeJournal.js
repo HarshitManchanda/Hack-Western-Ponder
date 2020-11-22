@@ -10,7 +10,7 @@ const GratitudeJournal = ({ navigation }) => {
     useEffect(() => {
         const db = SQLite.openDatabase('db.ponder') // returns Database object
         db.transaction(function(txn) {
-            //txn.executeSql('DROP TABLE gratitudeJournalEntries');
+            // txn.executeSql('DROP TABLE gratitudeJournalEntries');
             txn.executeSql('CREATE TABLE IF NOT EXISTS gratitudeJournalEntries(id INTEGER PRIMARY KEY NOT NULL, title TEXT, date TEXT, description TEXT)');
             txn.executeSql('SELECT * FROM gratitudeJournalEntries', [], function (tx, res) {
                 journalEntries = [];
@@ -27,11 +27,11 @@ const GratitudeJournal = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Gratitude Journal</Text>
+            <Text style={styles.title}>My Gratitude Journal</Text>
             <TouchableHighlight
                 style={styles.button}
                 onPress={() => navigation.navigate('GratitudeExpanded', {})}
-                underlayColor='#000000'>
+                underlayColor='#ff7a83'>
                 <Text style={styles.buttonText}>Add Entry</Text>
             </TouchableHighlight>
             <ScrollView height={400}>
@@ -40,7 +40,7 @@ const GratitudeJournal = ({ navigation }) => {
             <TouchableHighlight
                 style={styles.button}
                 onPress={() => navigation.navigate('Home', {})}
-                underlayColor='#000000'>
+                underlayColor='#ff7a83'>
                 <Text style={styles.buttonText}>Back</Text>
             </TouchableHighlight>
         </SafeAreaView>
@@ -61,15 +61,14 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#FC545E',
         marginVertical: 5,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        borderColor: 'black',
+        borderWidth: 2,
+        borderRadius: 10,
     },
     buttonText: {
         paddingVertical: 15,
         color: '#FFFBFB',
-        backgroundColor: '#FC545E',
-        borderColor: 'black',
-        borderWidth: 2,
-        borderRadius: 10,
         textAlign: 'center',
         fontSize: 24,
     }
