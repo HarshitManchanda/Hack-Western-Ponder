@@ -81,7 +81,7 @@ export default function Homepage({ navigation }) {
     },
     quote: {
         paddingLeft: 15,
-        paddingTop: 20,
+        paddingTop: 21,
         fontSize: 22,
         fontWeight: "bold",
         color: '#7197AC',
