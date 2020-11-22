@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { Text, ScrollView, StyleSheet, TouchableHighlight, SafeAreaView, TextInput, View } from 'react-native';
 
@@ -13,7 +14,7 @@ const GratitudeJournalExpanded = (props) => {
             </View>
             <TouchableHighlight
                 style={styles.button}
-                onPress={() => {}}
+                onPress={() => props.navigation.navigate('Gratitude', {})}
                 underlayColor='#000000'>
                 <Text style={styles.buttonText}>Back</Text>
             </TouchableHighlight>

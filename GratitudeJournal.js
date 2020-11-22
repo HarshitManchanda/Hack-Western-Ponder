@@ -1,8 +1,9 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { Text, ScrollView, StyleSheet, TouchableHighlight, SafeAreaView } from 'react-native';
 import GratitudeJournalEntry from './GratitudeJournalEntry.js';
 
-const GratitudeJournal = () => {
+const GratitudeJournal = ({ navigation }) => {
     const journalEntries = [
         {title: 'What made you smile today?', date: '11/21/2020', description: 'Expanded entry description for longer entries'},
         {title: 'What made you smile today?', date: '11/21/2020', description: 'This is an example of a longer entry that requires multiple lines'},
@@ -12,7 +13,7 @@ const GratitudeJournal = () => {
     ];
 
     const GratitudeJournalEntries = journalEntries.map(entryData => (
-        <GratitudeJournalEntry title={entryData.title} date={entryData.date} description={entryData.description}/>
+        <GratitudeJournalEntry title={entryData.title} date={entryData.date} description={entryData.description} navigation={navigation}/>
     ));
 
     return (
@@ -20,7 +21,7 @@ const GratitudeJournal = () => {
             <Text style={styles.title}>Gratitude Journal</Text>
             <TouchableHighlight
                 style={styles.button}
-                onPress={() => {}}
+                onPress={() => navigation.navigate('GratitudeExpanded', {})}
                 underlayColor='#000000'>
                 <Text style={styles.buttonText}>Add Entry</Text>
             </TouchableHighlight>
@@ -29,7 +30,7 @@ const GratitudeJournal = () => {
             </ScrollView>
             <TouchableHighlight
                 style={styles.button}
-                onPress={() => {}}
+                onPress={() => navigation.navigate('Home', {})}
                 underlayColor='#000000'>
                 <Text style={styles.buttonText}>Back</Text>
             </TouchableHighlight>
