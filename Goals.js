@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View, Alert, TouchableHighlight, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Alert, TouchableHighlight } from 'react-native';
 
-export default function Goals() {
+export default function Goals({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.top_section}>
@@ -60,6 +60,12 @@ export default function Goals() {
           </View>
         </View>
       </View>
+      <TouchableHighlight
+        style={styles.button}
+        onPress={() => navigation.navigate('Home', {})}
+        underlayColor='#000000'>
+        <Text style={styles.buttonText}>Back</Text>
+      </TouchableHighlight>
     </View>
   );
 }
@@ -132,5 +138,20 @@ const styles = StyleSheet.create({
     borderRadius: 15, 
     marginTop: 10, 
     marginBottom: 20
+  },
+  button: {
+      backgroundColor: '#FC545E',
+      marginVertical: 5,
+      marginHorizontal: 10,
+  },
+  buttonText: {
+      paddingVertical: 15,
+      color: '#FFFBFB',
+      backgroundColor: '#FC545E',
+      borderColor: 'black',
+      borderWidth: 2,
+      borderRadius: 10,
+      textAlign: 'center',
+      fontSize: 24,
   }
 });
