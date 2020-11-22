@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, TouchableHighlight, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Alert, TouchableHighlight, ImageBackground} from 'react-native';
 
 export default function Goals() {
   return (
