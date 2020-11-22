@@ -12,13 +12,13 @@ export default function Resources({ navigation }) {
         <View style={styles.section}>
             <Text style={styles.titleText}>A Guide to Motivation:</Text>
             <Text style={styles.bodyText}>One of the biggest challenges in meeting any goal, whether it be related to productivity, waking early, 
-            changing a habit, exercising, or just becoming happier, is finding the motivation to stick with it.If you can stick with a goal for long...               </Text>
+            changing a habit, exercising, or just becoming happier, is finding the motivation to stick with it. If you can stick with a goal for long...               </Text>
         </View>
-        <View style={styles.section}>
+        {/* <View style={styles.section}>
             <Text style={styles.titleText}>6 Ways To Reduce Stress and Stop Worrying!</Text>
             <Text style={styles.bodyText}>One of the biggest challenges in meeting any goal, whether it be related to productivity, waking early, 
             changing a habit, exercising, or just becoming happier, is finding the...             </Text>
-        </View>
+        </View> */}
         <View style={styles.section}>
             <Text style={styles.titleText}>How to be Happy: Is There a Secret Key to Finding True Happiness?</Text>
             <Text style={styles.bodyText}>Are you happy? It’s kind of a jarring question at first. Because if you are happy then does it mean you are never not happy? 
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     section: {
-        width: 300,
+        width: 350,
         height: 100,
         margin: 10,
         flex: 1,
@@ -74,14 +74,14 @@ const styles = StyleSheet.create({
     titleText: {
         paddingLeft: 10,
         paddingTop: 7,
-        fontSize: 15,
+        fontSize: 22,
         fontWeight: "bold",
         color: '#fff'
     },
     bodyText: {
         padding: 10,
         marginBottom: 12,
-        fontSize: 10,
+        fontSize: 16,
         color: '#fff'
     },
     button: {

@@ -20,12 +20,13 @@ export default function Goals({ navigation }) {
         </View>
         <View style={{flex: 2, flexDirection: 'row'}}>
           <View style={[styles.number_section, styles.number_left]}>
-            <Text style={{fontSize: 44}}>3</Text>
-            <Text style={{fontSize: 22, marginTop: 10}}>Achieved</Text>
+            <Text style={{fontSize: 44, marginBottom: 10}}>2</Text>
+            <Text style={{fontSize: 22, marginTop: 6}}>Achieved</Text>
           </View>
           <View style={[styles.number_section, styles.number_right]}>
-            <Text style={{fontSize: 44}}>1</Text>
-            <Text style={{fontSize: 22, marginTop: 10}}>Pending</Text>
+            <Text style={{fontSize: 44, marginTop: 20}}>2</Text>
+            <Text style={{fontSize: 22, marginTop: 10}}>Marching</Text>
+            <Text style={{fontSize: 22}}>Towards</Text>
           </View>
         </View>
       </View>
@@ -58,11 +59,11 @@ export default function Goals({ navigation }) {
         </View>
         <View style={styles.task_bar}>
           <View style={styles.circle_button}>
-            <ImageBackground source={require('../assets/circle-cropped.png')} style={styles.image}>
-            </ImageBackground>
+            {/* <ImageBackground source={require('../assets/circle-cropped.png')} style={styles.image}>
+            </ImageBackground> */}
           </View>
           <View>
-            <Text style={{fontSize: 18}}>Sleep for some time</Text>
+            <Text style={{fontSize: 18}}>Win the first prize</Text>
           </View>
         </View>
       </View>
@@ -119,8 +120,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#4945F4'
   },
   number_section: {
-    width: 120,
-    height: 120,
+    width: 140,
+    height: 140,
     backgroundColor: '#FFFFFF',
     marginTop: 80,
     alignItems: 'center',
