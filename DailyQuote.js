@@ -1,31 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, TouchableHighlight, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
 
-export default function DailyQuote() {
+export default function DailyQuote({ navigation }) {
     return (
-      <View style={styles.container}>
-        <View style={styles.section}>
-          <Image source={require('./assets/sun.png')} style={styles.image}/>
-          <Text style={styles.header_text}>Morning, Sunshine!</Text>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('Home', {})}>
+        <View style={styles.container}>
+          <View style={styles.section}>
+            <Image source={require('./assets/sun.png')} style={styles.image}/>
+            <Text style={styles.header_text}>Morning, Sunshine!</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={{fontSize: 18}}>Today we are going to have an awesome day</Text>
+            <Text style={{fontSize: 18}}>filled with positive experiences!</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={{fontSize: 18}}>Throughout the day, keep in mind how</Text>
+            <Text style={{fontSize: 18}}>you could make today 5% better than yesterday</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={{fontSize: 24, fontWeight: "600"}}>"With the new day comes new</Text>
+            <Text style={{fontSize: 24, fontWeight: "600"}}>strength and new thoughts."</Text>
+            <Text style={{fontSize: 20}}>- Eleanor Roosevelt</Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={{fontSize: 20}}>I AM READY FOR AN AWESOME DAY!!!</Text>
+          </View>
         </View>
-        <View style={styles.section}>
-          <Text style={{fontSize: 18}}>Today we are going to have an awesome day</Text>
-          <Text style={{fontSize: 18}}>filled with positive experiences!</Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={{fontSize: 18}}>Throughout the day, keep in mind how</Text>
-          <Text style={{fontSize: 18}}>you could make today 5% better than yesterday</Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={{fontSize: 24, fontWeight: "600"}}>"With the new day comes new</Text>
-          <Text style={{fontSize: 24, fontWeight: "600"}}>strength and new thoughts."</Text>
-          <Text style={{fontSize: 20}}>- Eleanor Roosevelt</Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={{fontSize: 20}}>I AM READY FOR AN AWESOME DAY!!!</Text>
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
   
