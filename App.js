@@ -3,13 +3,14 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Title from './Title.js';
-import DailyQuote from './DailyQuote.js';
-import Homepage from './Homepage.js';
-import Goals from './Goals.js';
-import GratitudeJournal from './GratitudeJournal.js'
-import GratitudeJournalExpanded from './GratitudeJournalExpanded.js'
-import Resources from './Resources.js';
+import Title from './pages/Title.js';
+import DailyQuote from './pages/DailyQuote.js';
+import Homepage from './pages/Homepage.js';
+import Goals from './pages/Goals.js';
+import GratitudeJournal from './pages/GratitudeJournal.js'
+import GratitudeJournalExpanded from './pages/GratitudeJournalExpanded.js'
+import Resources from './pages/Resources.js';
+import * as SQLite from 'expo-sqlite';
 
 const Stack = createStackNavigator();
 

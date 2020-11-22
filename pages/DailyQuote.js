@@ -6,7 +6,7 @@ export default function DailyQuote({ navigation }) {
       <TouchableWithoutFeedback onPress={() => navigation.navigate('Home', {})}>
         <View style={styles.container}>
           <View style={styles.section}>
-            <Image source={require('./assets/sun.png')} style={styles.image}/>
+            <Image source={require('../assets/sun.png')} style={styles.image}/>
             <Text style={styles.header_text}>Morning, Sunshine!</Text>
           </View>
           <View style={styles.section}>
