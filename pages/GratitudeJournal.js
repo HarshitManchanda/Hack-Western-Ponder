@@ -1,16 +1,25 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, ScrollView, StyleSheet, TouchableHighlight, SafeAreaView } from 'react-native';
 import GratitudeJournalEntry from './GratitudeJournalEntry.js';
+import * as SQLite from 'expo-sqlite';
+
+let journalEntries = [];
 
 const GratitudeJournal = ({ navigation }) => {
-    const journalEntries = [
-        {title: 'What made you smile today?', date: '11/21/2020', description: 'Expanded entry description for longer entries'},
-        {title: 'What made you smile today?', date: '11/21/2020', description: 'This is an example of a longer entry that requires multiple lines'},
-        {title: 'What made you smile today?', date: '11/21/2020', description: 'This will be a very veeeeeeeeeeeery extremely long entry that cannot fit in the regular gratitude journal page preview and has to be expanded (still needs to be done) to be viewed in full'},
-        {title: 'What made you smile today?', date: '11/21/2020', description: 'This will be a very veeeeeeeeeeeery extremely long entry that cannot fit in the regular gratitude journal page preview and has to be expanded (still needs to be done) to be viewed in full'},
-        {title: 'What made you smile today?', date: '11/21/2020', description: 'This will be a very veeeeeeeeeeeery extremely long entry that cannot fit in the regular gratitude journal page preview and has to be expanded (still needs to be done) to be viewed in full'},
-    ];
+    useEffect(() => {
+        const db = SQLite.openDatabase('db.ponder') // returns Database object
+        db.transaction(function(txn) {
+            //txn.executeSql('DROP TABLE gratitudeJournalEntries');
+            txn.executeSql('CREATE TABLE IF NOT EXISTS gratitudeJournalEntries(id INTEGER PRIMARY KEY NOT NULL, title TEXT, date TEXT, description TEXT)');
+            txn.executeSql('SELECT * FROM gratitudeJournalEntries', [], function (tx, res) {
+                journalEntries = [];
+                for (let i = 0; i < res.rows.length; ++i) {
+                    journalEntries.unshift(res.rows.item(i));
+                }
+            });
+        });
+    }, [])
 
     const GratitudeJournalEntries = journalEntries.map(entryData => (
         <GratitudeJournalEntry title={entryData.title} date={entryData.date} description={entryData.description} navigation={navigation}/>

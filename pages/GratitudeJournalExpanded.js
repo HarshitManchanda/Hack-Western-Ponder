@@ -1,20 +1,32 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { Text, ScrollView, StyleSheet, TouchableHighlight, SafeAreaView, TextInput, View } from 'react-native';
+import * as SQLite from 'expo-sqlite';
 
-const GratitudeJournalExpanded = (props) => {
+const GratitudeJournalExpanded = ({ navigation, route }) => {
+    const state = {
+        title: route.params['title'],
+        date: route.params['date'],
+        description: route.params['description']
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            <TextInput style={styles.title} multiline={true}>{props.title}</TextInput>
+            <TextInput style={styles.title} multiline={true} onChangeText={(value) => state.title = value}>{route.params['title']}</TextInput>
             <Text style={styles.date}>{new Date().getMonth()}/{new Date().getDate()}/{new Date().getFullYear()}</Text>
             <View borderWidth={2} marginHorizontal={5}>
                 <ScrollView style={styles.textInput} textAlignVertical={true} keyboardDismissMode='on-drag'>
-                    <TextInput style={styles.description} multiline={true}></TextInput>
+                    <TextInput style={styles.description} multiline={true} onChangeText={(value) => state.description = value}>{route.params['description']}</TextInput>
                 </ScrollView>
             </View>
             <TouchableHighlight
                 style={styles.button}
-                onPress={() => props.navigation.navigate('Gratitude', {})}
+                onPress={() => {
+                    const db = SQLite.openDatabase('db.ponder') // returns Database object
+                    db.transaction(function(txn) {
+                        txn.executeSql('INSERT INTO gratitudeJournalEntries (title, date, description) values (?, ?, ?)', [state.title, state.date, state.description], navigation.navigate('Gratitude', {}));
+                    })
+                }}
                 underlayColor='#000000'>
                 <Text style={styles.buttonText}>Back</Text>
             </TouchableHighlight>
